@@ -1,0 +1,436 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button.active {
+    background-color: #2980b9;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+section {
+    display: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+section.active-section {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Shortest Route Section */
+.grid-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.grid-controls select, .grid-controls button {
+    margin: 0 0.25rem;
+}
+
+.instructions {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 2px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.grid-cell {
+    aspect-ratio: 1/1;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.grid-cell.start {
+    background-color: #2ecc71;
+}
+
+.grid-cell.end {
+    background-color: #e74c3c;
+}
+
+.grid-cell.obstacle {
+    background-color: #7f8c8d;
+}
+
+.grid-cell.path {
+    background-color: #3498db;
+}
+
+#path-info {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Collision Prevention Section */
+.control-panel {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.collision-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#collision-canvas-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#collision-canvas {
+    width: 100%;
+    height: 400px;
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+/* Traffic Simulation Section */
+.simulation-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.simulation-controls > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.simulation-controls input[type="range"] {
+    flex-grow: 1;
+}
+
+.simulation-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#simulation-canvas-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#simulation-canvas {
+    width: 100%;
+    height: 400px;
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+/* Traffic Light Management Section */
+.intersection-controls {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.intersection {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.traffic-light {
+    width: 80px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.light {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.light.red.active {
+    background-color: #e74c3c;
+    box-shadow: 0 0 20px #e74c3c;
+}
+
+.light.yellow.active {
+    background-color: #f1c40f;
+    box-shadow: 0 0 20px #f1c40f;
+}
+
+.light.green.active {
+    background-color: #2ecc71;
+    box-shadow: 0 0 20px #2ecc71;
+}
+
+#intersections-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.light-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav button {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .grid-controls, .control-panel, .intersection-controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .simulation-controls > div, .collision-stats, .simulation-stats, .light-stats {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    #grid-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+/* Collision prevention ----------------------------------------------------------------------------------------------------------
+/* Add these styles to your existing style.css file */
+
+/* Main Section Styles */
+section {
+    display: none;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.active-section {
+    display: block;
+}
+
+/* Collision Prevention Section */
+#collision-prevention {
+    width: 100%;
+}
+
+.collision-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.collision-controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.collision-controls select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 14px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.button-group button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #2980b9;
+}
+
+#stop-collision-sim {
+    background-color: #e74c3c;
+}
+
+#stop-collision-sim:hover {
+    background-color: #c0392b;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stats div {
+    background-color: #e7e7e7;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.stats span {
+    color: #3498db;
+}
+
+#collision-canvas {
+    width: 100%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Make sure the canvas is responsive */
+@media (max-width: 768px) {
+    .collision-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .button-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Styles for navigation buttons */
+nav button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+nav button:hover {
+    background-color: #e0e0e0;
+}
+
+nav button.active {
+    background-color: #3498db;
+    color: white;
+    border-color: #2980b9;
+}
+

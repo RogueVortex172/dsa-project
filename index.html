@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Traffic Management System</h1>
+        <nav>
+            <button id="shortest-route-btn" class="active">Shortest Route</button>
+        <form action="TL.html">
+            <button id="traffic-light-btn">Traffic Light Management</button>
+        </form>
+            
+        </nav>
+    </header>
+
+    <main>
+        <!-- Shortest Route Section -->
+        <section id="shortest-route" class="active-section">
+            <h2>Shortest Route Finder</h2>
+            <div class="grid-controls">
+                <div>
+                    <label for="grid-size">Grid Size:</label>
+                    <select id="grid-size">
+                        <option value="8">8x8</option>
+                        <option value="10" selected>10x10</option>
+                        <option value="12">12x12</option>
+                        <option value="15">15x15</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="reset-grid">Reset Grid</button>
+                    <button id="find-path">Find Shortest Path</button>
+                </div>
+            </div>
+            <div class="instructions">
+                <p>Click on grid to place:<br>
+                   - First click: Start point (green)<br>
+                   - Second click: End point (red)<br>
+                   - Additional clicks: Obstacles (gray)</p>
+            </div>
+            <div id="grid-container"></div>
+            <div id="path-info"></div>
+        </section>
+
+        <!-- Traffic Light Management Section -->
+        <section id="traffic-light-management">
+            <h2>Traffic Light Management</h2>
+            <div class="intersection-controls">
+                <div>
+                    <label for="light-algorithm">Traffic Light Algorithm:</label>
+                    <select id="light-algorithm">
+                        <option value="fixed">Fixed Timing</option>
+                        <option value="adaptive">Adaptive Timing</option>
+                        <option value="smart">Smart Coordination</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="start-lights">Start System</button>
+                    <button id="stop-lights">Stop System</button>
+                    <button id="add-intersection">Add Intersection</button>
+                </div>
+            </div>
+            <div id="intersections-container"></div>
+            <div class="light-stats">
+                <div>Wait Time: <span id="wait-time">0</span> seconds</div>
+                <div>Throughput: <span id="throughput">0</span> vehicles/minute</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Traffic Management System - DSA Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
