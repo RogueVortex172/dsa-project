@@ -120,7 +120,7 @@ function handleCellClick(row, col) {
     }
 }
 
-function updateGridUI() {
+function updateGridUI() { // update grid ui
     for (let row = 0; row < gridSize; row++) {
         for (let col = 0; col < gridSize; col++) {
             const cell = document.querySelector(`.grid-cell[data-row="${row}"][data-col="${col}"]`);
@@ -139,7 +139,7 @@ function updateGridUI() {
     }
 }
 
-function findShortestPath() {
+function findShortestPath() { // to find the shortest path
     // Check if start and end nodes are set
     if (!startNode || !endNode) {
         document.getElementById('path-info').textContent = 'Please set both start and end points';
@@ -279,7 +279,7 @@ function getNeighbors(node) {
     return neighbors;
 }
 
-function clearPath() {
+function clearPath() { // clear the path
     // Clear current path
     for (const node of currentPath) {
         grid[node.row][node.col].isPath = false;
@@ -537,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return true;
       }
 
-      // Dijkstra's algorithm for finding shortest path
+      // Dijkstra's algorithm to find the shortest path
       dijkstra(startId, endId) {
           if (!this.nodes.has(startId) || !this.nodes.has(endId)) {
               return null;
