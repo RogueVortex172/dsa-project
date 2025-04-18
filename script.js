@@ -85,7 +85,7 @@ function initializeGrid() {
     document.getElementById('path-info').textContent = '';
 }
 
-function handleCellClick(row, col) {
+function handleCellClick(row, col) {         // function to handle cell click
     // Clear previous path
     clearPath();
     
@@ -279,7 +279,7 @@ function getNeighbors(node) {
     return neighbors;
 }
 
-function clearPath() {
+function clearPath() {         functiont to clear path
     // Clear current path
     for (const node of currentPath) {
         grid[node.row][node.col].isPath = false;
@@ -788,7 +788,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
       
-      getRandomColor() {
+      getRandomColor() {  //give random colour to cars
           const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
           return colors[Math.floor(Math.random() * colors.length)];
       }
@@ -1109,7 +1109,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Query the quad-tree for nearby vehicles
           const nearbyPoints = quadTree.query(range);
           
-          // Check if other vehicles are too close
+          // Check if other vehicles are too close or not
           for (const point of nearbyPoints) {
               if (point.vehicle.id !== vehicle.id) {
                   // Calculate if they're actually too close (check actual distance)
@@ -1162,7 +1162,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
       
-      // Detect and prevent collisions
+      // Detect and prevent collisions of vechiles
       detectAndPreventCollisions();
       
       // Periodically decrease traffic values
