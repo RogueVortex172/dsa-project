@@ -4,7 +4,7 @@ window.onload = function () {
   const ctx = canvas.getContext('2d');
   if (!canvas || !ctx) {
       console.error("Canvas not found or context couldn't be loaded.");
-      return;
+      return;    //Check if canva is there or not
   }
   let Fuckoff = "#313530";
   let vehicles = [];
